@@ -1,5 +1,3 @@
-import {RankObjects, suitObjects} from "../types.ts";
-
 class Card {
     constructor(
       public rank: string,

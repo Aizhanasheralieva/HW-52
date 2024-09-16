@@ -13,14 +13,16 @@ class CardDeck {
     }
   getCard() {
     const randomIndex = Math.floor(Math.random() * this.cards.length);
-    return this.cards.splice(randomIndex, 1);
+    return this.cards.splice(randomIndex, 1)[0];
   }
 
   getCards(howMany: number) {
       const resultingCards: Card[] = [];
       for (let i = 0; i < howMany; i++) {
         const card = this.getCard();
-        resultingCards.push(card);
+        if (card) {
+          resultingCards.push(card);
+        }
       }
       return resultingCards;
   }

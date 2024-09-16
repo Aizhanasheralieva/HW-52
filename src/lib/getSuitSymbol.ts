@@ -12,7 +12,7 @@ const getSuitSymbol = (suit: suitObjects) => {
     case suitObjects.CLUBS:
       return '♣';
     default:
-      throw new Error(`Unavailable suit: ${suitObjects}`);
+      throw new Error(`Unavailable suit: ${suit}`);
   }
 };
 

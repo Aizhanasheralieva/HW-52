@@ -7,7 +7,7 @@ type Props = {
   suit: suitObjects;
 };
 
-const MyCard: React.FC<Props> = ({rank, suit}) => {
+const MyCardComponent: React.FC<Props> = ({rank, suit}) => {
   const suitSymbols = getSuitSymbol(suit);
 
   return (
@@ -17,4 +17,4 @@ const MyCard: React.FC<Props> = ({rank, suit}) => {
     </span>
   );
 };
-export default MyCard;
+export default MyCardComponent;

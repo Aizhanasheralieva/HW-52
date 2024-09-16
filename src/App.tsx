@@ -1,16 +1,32 @@
-import MyCard from "./PlayCard.tsx";
-import {RankObjects, suitObjects} from "./types.ts";
+
+import {useState} from "react";
+import CardDeck from "./lib/CardDeck.ts";
+import Card from "./lib/Card.ts";
+import MyCardComponent from "./PlayCard.tsx";
 
 
 const App = () => {
+  const [cards, setCards] = useState<Card[]>([]);
+
+  const deal = () => {
+    const deck = new CardDeck();
+    const newCards = deck.getCards(5);
+    setCards(newCards);
+  };
   return (
-    <div className="playingCards faceImages">
-      <MyCard suit={suitObjects.DIAMS} rank={RankObjects.K}/>
-      <MyCard suit={suitObjects.HEARTS} rank={RankObjects.Q}/>
-      <MyCard suit={suitObjects.CLUBS} rank={RankObjects.RANK_3}/>
-      <MyCard suit={suitObjects.SPADES} rank={RankObjects.RANK_10}/>
-    </div>
-  );
+    <>
+      <div className="container">
+        <div className="playingCards faceImages">
+          {cards.map((card) => (
+            <MyCardComponent key={card.suit + '-' + card.rank} suit={card.suit} rank={card.rank}/>
+          ))}
+        </div>
+        <div>
+          <button className="dealBtn" onClick={deal}>Deal</button>
+        </div>
+      </div>
+    </>
+  )
 };
 
 export default App;

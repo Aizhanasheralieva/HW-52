@@ -1,14 +1,13 @@
-interface Props {
-  rank: string;
-  suit: string;
-}
+import {RankObjects, suitObjects} from "../types.ts";
+
 class Card {
-    constructor (rank, suit) {
+    constructor(
+      public rank: string,
+      public suit: string,
+    ) {
         this.rank = rank;
         this.suit = suit;
-
     }
-
 }
 
 export default Card;

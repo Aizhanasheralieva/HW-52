@@ -1,4 +1,4 @@
-import MyCard from "./Card.tsx";
+import MyCard from "./PlayCard.tsx";
 import {RankObjects, suitObjects} from "./types.ts";
 
 

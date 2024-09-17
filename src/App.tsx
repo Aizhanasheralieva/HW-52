@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div className="body">
-      <button className="dealBtn" onClick={deal}>Deal</button>
+      <button className="dealBtn" onClick={deal}>Deal the cards</button>
       <div className="playingCards">
         {cards.map((card) => (
           <MyCardComponent key={card.suit + '-' + card.rank} suit={card.suit} rank={card.rank} />

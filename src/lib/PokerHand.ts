@@ -4,8 +4,7 @@ import { RankObjects } from "../types.ts";
 class PokerHand {
   constructor(private cards: Card[]) {}
 
-
-  public receiveTheFinalResult(): string {
+  public getOutcome(): string {
     if (this.isOnePair()) {
       return 'One pair';
     }
@@ -22,12 +21,10 @@ class PokerHand {
     }
   }
 
-
   private isOnePair(): boolean {
     const rankCounts: Record<string, number> = this.getRankCounts();
     return Object.values(rankCounts).includes(2);
   }
-
 
   private isTwoPairs(): boolean {
     const rankCounts: Record<string, number> = this.getRankCounts();
@@ -35,12 +32,10 @@ class PokerHand {
     return pairs.length === 2;
   }
 
-
   private isThreeOfAKind(): boolean {
     const rankCounts: Record<string, number> = this.getRankCounts();
     return Object.values(rankCounts).includes(3);
   }
-
 
   private isFlush(): boolean {
     const suit = this.cards[0].suit;
@@ -53,7 +48,6 @@ class PokerHand {
       return rankOrder.indexOf(currentCard.rank) > rankOrder.indexOf(highCard.rank) ? currentCard : highCard;
     });
   }
-
 
   private getRankCounts(): Record<string, number> {
     const rankCounts: Record<string, number> = {};
